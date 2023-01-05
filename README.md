@@ -1,11 +1,16 @@
 # Argon BWG
-## Bip-39 Border Wallet Generator utilizing Argon2id
+### Bip-39 Border Wallet Generator utilizing Argon2id
 
 ## Motivation
 When memorized, bip-39 mnemonic wallets are resistant to invasive searches. Good quality large size entropy is key to secure bitcoin or other cryptoassets. Those are very hard to memorize and recall later with a high degree of confidence.
 
 ## Abstract
 Argon BGW is made for generating bip-39 mnemonic wallets from the SHA256 hash of an ubiquitous high quality entropy source like a camera captured picture file, and a moderately strong passphrase that is easier to remember trading passphrase strenght for extreme computational cost.
+
+## Caution
+**WARNING:** The **file** used as entropy base **needs to be the same bit by bit** to generate the same mnemonic! Many web services will alter image files uploaded to them routinely, resizing them, or removing metadata. Such actions will completely change the SHA256 fingerprint of the file!
+
+The **24 word mnemonic seed backup** is the only feasible way to **restore the wallet and recover assets** in case the file or the passphrase is lost!
 
 ## How to use?
 
