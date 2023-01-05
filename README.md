@@ -4,7 +4,8 @@
 ## Motivation
 When memorized, bip-39 mnemonic wallets are resistant to invasive searches. Good quality large size entropy is key to secure bitcoin or other cryptoassets. Those are very hard to memorize and recall later with a high degree of confidence.
 
-Argon BGW helps with generating those words from the SHA256 hash of an ubiqituous high quality entropy source like a picture file, and a moderately strong passphrase that is easier to remember.
+## Abstract
+Argon BGW is made for generating bip-39 mnemonic wallets from the SHA256 hash of an ubiquitous high quality entropy source like a camera captured picture file, and a moderately strong passphrase that is easier to remember trading passphrase strenght for extreme computational cost.
 
 ## How to use?
 
