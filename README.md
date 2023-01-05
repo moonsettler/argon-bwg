@@ -1,5 +1,23 @@
 # Argon BWG
-## Border Wallet Generator utilizing Argon2id
+## Bip-39 Border Wallet Generator utilizing Argon2id
+
+## Motivation
+When memorized, bip-39 mnemonic wallets are resistant to invasive searches. Good quality large size entropy is key to secure bitcoin or other cryptoassets. Those are very hard to memorize and recall later with a high degree of confidence.
+
+Argon BGW helps with generating those words from the SHA256 hash of an ubiqituous high quality entropy source like a picture file, and a moderately strong passphrase that is easier to remember.
+
+## How to use?
+
+1. Download the argon-bwg offline static webpage from github!
+2. Select a file, like a picture you took as the main entropy source!
+3. Choose a passphrase or random generate 6 words and memorize them!
+4. Run argon-bwg under Tails or other live os offline!
+5. Select the file, or manually enter the SHA256 hash!
+6. Enter the passphrase next!
+7. Press "Generate"! It will take a while, on an average PC about an hour.
+8. Finally it displays 24 word Mnemonic Wallet.
+9. Note down your words and keep them secure!
+10. Enter your 24 words into a hardware or software wallet of your choosing, to receive and spend!
 
 ## How to verify the dependencies used
 * **Argon2id-JS by Rabbit-Company**
