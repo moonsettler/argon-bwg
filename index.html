@@ -2,15 +2,10 @@
 <html>
 	<head>
 		<title>Argon2id-JS</title>
-		<!-- 1. Include worker to increase performance. -->
 		<script src="lib/Argon2idWorker.min.js"></script>
-		<!-- 2. Include Argon2id library. -->
 		<script src="lib/Argon2id.min.js"></script>
-		<!-- 3. Include sjcl-bip39 library. -->
 		<script src="lib/sjcl-bip39.js"></script>
-		<!-- 4. Include jsbip39 library. -->
 		<script src="lib/jsbip39.js"></script>
-		<!-- 5. Include English wordlist. -->
 		<script src="lib/wordlist_english.js"></script>
 	</head>
 	<body>
@@ -21,16 +16,20 @@
 		<label>Parallelism Factor: </label><input id="p" type="number" min="1" max="16" placeholder="p"><br/>
 		<label>Memory Cost: </label><input id="m" type="number" min="32" max="1024" placeholder="m"><br/>
 		<label>Iterations: </label><input id="i" type="number" min="1" max="3600" placeholder="t"><br/>
-		<label>Hash Length: </label><input id="l" type="number" min="1" max="64" placeholder="l"><br/><br/>
+		<label>Hash Length: </label><input id="l" type="number" min="1" max="64" placeholder="l"><br/>
+		<label>Mnemonic size: </label><select id="size">
+			<option value="32">12 words</option>
+			<option value="64">24 words</option>
+		  </select><br/><br/>
 		<button id="start">Hash</button>
 		
 		<p id="hash"></p>
-		<h3>24 word Mnemonic Wallet</h3>
+		<h3>12/24 word Mnemonic Wallet</h3>
 		<textarea id="mnemonic" rows="5" cols="40"style="font-size:20px;font-weight:bold;font-family:Courier;white-space:pre-wrap"></textarea>
 
 		<h3>Performance</h3>
 		<p id="perf"></p>
-		<!-- Then we can work with it -->
+		
 		<script src="index.js"></script>
 	</body>
 </html>

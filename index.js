@@ -1,9 +1,10 @@
 document.getElementById('message').value = '';
 document.getElementById('salt').value = '';
-document.getElementById('p').value = '2';
-document.getElementById('m').value = '1024';
-document.getElementById('i').value = '3600';
-document.getElementById('l').value = '32';
+document.getElementById('p').value = '2';		// Threads
+document.getElementById('m').value = '1024';	// Memory KiB
+document.getElementById('i').value = '3600';	// Iterations
+document.getElementById('l').value = '32';		// Hash length
+document.getElementById('size').value = '64';	// Hexadecimal digits
 
 document.getElementById('file').addEventListener('change', hashfile);
 
@@ -16,6 +17,7 @@ document.getElementById('start').addEventListener('click', () => {
 	let l = document.getElementById('l').value;
 	let secret = '';
 	let associatedData = '';
+	let mnemonicSize = document.getElementById('size').value;
 
 	message = bytesToHex(hexToBytes(message));
 	document.getElementById('message').value = message;
@@ -29,7 +31,7 @@ document.getElementById('start').addEventListener('click', () => {
 
 		let mnemonics = { "english": new Mnemonic("english") };
 		let mnemonic = mnemonics["english"];
-		let entropy = hexToBytes(hashHex);
+		let entropy = hexToBytes(hashHex.substr(0, mnemonicSize));
 		let words = mnemonic.toMnemonic(entropy);
 
 		document.getElementById('mnemonic').innerHTML = words;
