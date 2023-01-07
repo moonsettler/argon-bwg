@@ -2,7 +2,7 @@ document.getElementById('message').value = '';
 document.getElementById('salt').value = '';
 document.getElementById('p').value = '2';
 document.getElementById('m').value = '1024';
-document.getElementById('i').value = '60';
+document.getElementById('i').value = '3600';
 document.getElementById('l').value = '32';
 
 document.getElementById('file').addEventListener('change', hashfile);

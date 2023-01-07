@@ -7,10 +7,19 @@ When memorized, bip-39 mnemonic wallets are resistant to invasive searches. Good
 ## Abstract
 Argon BGW is made for generating bip-39 mnemonic wallets from the SHA256 hash of an ubiquitous high quality entropy source like a camera captured picture file, and a moderately strong passphrase that is easier to remember trading passphrase strenght for extreme computational cost.
 
-## Caution
+## Caution!
 **WARNING:** The **file** used as entropy base **needs to be the same bit by bit** to generate the same mnemonic! Many web services will alter image files uploaded to them routinely, resizing them, or removing metadata. Such actions will completely change the SHA256 fingerprint of the file!
 
 The **24 word mnemonic seed backup** is the only feasible way to **restore the wallet and recover assets** in case the file or the passphrase is lost!
+
+## Parameters
+The goal was, that generating the mnemonic wallet from entropy source and passphrase should take in the ballpark of 1 hour. For this purpose the following Argon2id parameters were choosen:
+- Message: File hash (lowercase)
+- Salt: Passphrase (lowercase)
+- Parallelism Factor: 2
+- Memory Cost: 1024
+- Iterations: 3600
+- Output Length: 32 bytes (256 bits)
 
 ## How to use?
 
@@ -25,8 +34,8 @@ The **24 word mnemonic seed backup** is the only feasible way to **restore the w
 9. Note down your words and keep them secure!
 10. Enter your 24 words into a hardware or software wallet of your choosing, to receive and spend!
 
-## How to verify the dependencies used
-* **Argon2id-JS by Rabbit-Company**
+## How to verify the dependencies used?
+### **Argon2id-JS by Rabbit-Company**
 
 Repository: https://github.com/moonsettler/Argon2id-JS/tree/e3f0679f8db6052767f1c2c704a1739e535be26b
 
@@ -37,7 +46,7 @@ File | SHA256 | State
 /Argon2id.min.js | f06dd275837c432bc5013a4398f3d4af4378591ab1283ef513e8f3a9c2ed0a84 | Unchanged
 /Argon2idWorker.min.js | 01fdb3514132314a798910c70245d55896546ab57c32dd35f616c4faedaf50ae | Unchanged
 
-* **bip39 by iancoleman**
+### **bip39 by iancoleman**
 
 Repository: https://github.com/moonsettler/bip39-iancoleman/tree/e2fdc5b9420fe45a255776f0caa6df8b0baf4a2c
 
