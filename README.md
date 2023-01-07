@@ -30,9 +30,9 @@ The goal was, that generating the mnemonic wallet from entropy source and passph
 5. Select the file, or manually enter the SHA256 hash!
 6. Enter the passphrase next!
 7. Press "Generate"! It will take a while, on an average PC about an hour.
-8. Finally it displays 24 word Mnemonic Wallet.
+8. Finally it displays 12/24 word Mnemonic Wallet.
 9. Note down your words and keep them secure!
-10. Enter your 24 words into a hardware or software wallet of your choosing, to receive and spend!
+10. Enter your 12/24 words into a hardware or software wallet of your choosing, to receive and spend!
 
 ## How to verify the dependencies used?
 ### **Argon2id-JS by Rabbit-Company**
