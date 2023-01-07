@@ -24,7 +24,7 @@ The goal was, that generating the mnemonic wallet from entropy source and passph
 ## How to use?
 
 1. Download the argon-bwg offline static webpage from github!
-2. Select a file, like a picture you took as the main entropy source!
+2. Choose a file, like a picture you took as the main entropy source!
 3. Choose a passphrase or random generate 6 words and memorize them!
 4. Run argon-bwg under Tails or other live os offline!
 5. Select the file, or manually enter the SHA256 hash!
