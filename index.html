@@ -7,12 +7,13 @@
 		<script src="lib/sjcl-bip39.js"></script>
 		<script src="lib/jsbip39.js"></script>
 		<script src="lib/wordlist_english.js"></script>
+		<link rel="stylesheet" href="index.css">
 	</head>
 	<body>
 		<h1>Argon BWG</h1>
 		<h3>Border Wallet Generator</h3>
-		<label>File SHA256: </label><input id="message"  type="text" style="min-width:600px"><input id="file" type="file"></br>
-		<label>Passphrase: </label><input id="salt" type="text" placeholder="Salt" style="min-width:450px"><br/></br>
+		<label>File SHA256: </label><input id="message" type="text"><input id="file" type="file"></br>
+		<label>Passphrase: </label><input id="salt" type="text" placeholder="Salt"><br/></br>
 		<label>Parallelism Factor: </label><input id="p" type="number" min="1" max="16" placeholder="p"><br/>
 		<label>Memory Cost: </label><input id="m" type="number" min="32" max="1024" placeholder="m"><br/>
 		<label>Iterations: </label><input id="i" type="number" min="1" max="3600" placeholder="t"><br/>
@@ -21,11 +22,11 @@
 			<option value="32">12 words</option>
 			<option value="64">24 words</option>
 		  </select><br/><br/>
-		<button id="start">Hash</button>
+		<button id="start">Generate!</button>
 		
 		<p id="hash"></p>
 		<h3>12/24 word Mnemonic Wallet</h3>
-		<textarea id="mnemonic" rows="5" cols="40"style="font-size:20px;font-weight:bold;font-family:Courier;white-space:pre-wrap"></textarea>
+		<textarea id="mnemonic" rows="5" cols="40"></textarea>
 
 		<h3>Performance</h3>
 		<p id="perf"></p>
