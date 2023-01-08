@@ -1,5 +1,4 @@
-document.getElementById('message').value = '';
-document.getElementById('salt').value = '';
+document.getElementById('entropy').value = '';
 document.getElementById('p').value = '2';		// Threads
 document.getElementById('m').value = '1024';	// Memory KiB
 document.getElementById('i').value = '3600';	// Iterations
@@ -7,6 +6,8 @@ document.getElementById('l').value = '32';		// Hash length
 document.getElementById('size').value = '64';	// Hexadecimal digits
 
 document.getElementById('file').addEventListener('change', hashfile);
+document.getElementById('entropy').addEventListener('change', updateMnemonic);
+document.getElementById('size').addEventListener('change', updateMnemonic);
 
 document.getElementById('start').addEventListener('click', () => {
 	let message = document.getElementById('message').value;
@@ -17,26 +18,36 @@ document.getElementById('start').addEventListener('click', () => {
 	let l = document.getElementById('l').value;
 	let secret = '';
 	let associatedData = '';
-	let mnemonicSize = document.getElementById('size').value;
 
 	message = bytesToHex(hexToBytes(message));
 	document.getElementById('message').value = message;
+	document.getElementById('entropy').value = '';
+	document.getElementById('mnemonic').innerHTML = '';
+	document.getElementById('perf').innerHTML = "Generating...";
 
 	let timerStart = Date.now();
 	Argon2id.hashEncoded(message, salt, i, m, p, l, secret, associatedData).then(hashEncoded => {
 		let hashHex = Argon2id.hashDecode(hashEncoded);
 		let timerEnd = calcT(timerStart);
-		document.getElementById('hash').innerHTML = "<b>Entropy:</b> " + hashHex;
+		
+		let entropy = document.getElementById('entropy');
+			entropy.value = hashHex;
+			entropy.dispatchEvent(new Event('change'));
+			
 		document.getElementById('perf').innerHTML = "Generating the mnemonic took <b>" + timerEnd + "ms</b>.";
-
-		let mnemonics = { "english": new Mnemonic("english") };
-		let mnemonic = mnemonics["english"];
-		let entropy = hexToBytes(hashHex.substr(0, mnemonicSize));
-		let words = mnemonic.toMnemonic(entropy);
-
-		document.getElementById('mnemonic').innerHTML = words;
 	});
 });
+
+function updateMnemonic() {
+	let hashHex = document.getElementById('entropy').value;
+	let mnemonicSize = document.getElementById('size').value;
+	let mnemonics = { "english": new Mnemonic("english") };
+	let mnemonic = mnemonics["english"];
+	let entropy = hexToBytes(hashHex.substr(0, mnemonicSize));
+	let words = mnemonic.toMnemonic(entropy);
+
+	document.getElementById('mnemonic').innerHTML = words;
+}
 
 function calcT(timer){
 	return Date.now() - timer;
