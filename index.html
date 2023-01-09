@@ -11,28 +11,22 @@
 	</head>
 	<body>
 		<h1>Argon BWG</h1>
-		<h3>Border Wallet Generator</h3>
-		<label>File SHA256: </label><input id="message" type="text"><input id="file" type="file"></br>
-		<label>Passphrase: </label><input id="salt" type="text" placeholder="Salt"><br/></br>
-		<label>Parallelism Factor: </label><input id="p" type="number" min="1" max="16" placeholder="p"><br/>
-		<label>Memory Cost: </label><input id="m" type="number" min="32" max="1024" placeholder="m"><br/>
-		<label>Iterations: </label><input id="i" type="number" min="1" max="3600" placeholder="t"><br/>
-		<label>Hash Length: </label><input id="l" type="number" min="1" max="64" placeholder="l"><br/>
-		<button id="start">Generate</button><br/>
-		
-		<h3>Entropy generated</h3>
-		<input id="entropy" readonly="true"><br/>
-		<h3>12/24 word Mnemonic Wallet</h3>
-		<label>Mnemonic size: </label>
-		<select id="size">
-			<option value="32">12 words</option>
-			<option value="64">24 words</option>
-		</select><br/><br/>
-		<textarea id="mnemonic" rows="4" cols="40"></textarea>
-
-		<h3>Performance</h3>
-		<p id="perf"></p>
-		
+		<table>
+			<tr> <td colspan="3"><h3>Border Wallet Generator</h3></td></tr>
+			<tr> <td><label>File SHA256</label></td> <td><input id="message" type="text"></td> <td><input id="file" type="file"></td> </tr>
+			<tr> <td><label>Passphrase</label></td> <td><input id="salt" type="text" placeholder="Salt"></td> <td><input id="saltWords" type="checkbox"><label for="saltWords">Bip-39 words only</label></td> </tr>
+			<tr> <td><label>Parallelism Factor</label></td> <td><input id="p" type="number" min="1" max="16" placeholder="p"></td> <td></td> </tr>
+			<tr> <td><label>Memory Cost</label></td> <td><input id="m" type="number" min="32" max="1024" placeholder="m"></td> <td></td> </tr>
+			<tr> <td><label>Iterations</label></td> <td><input id="i" type="number" min="1" max="3600" placeholder="t"></td> <td></td> </tr>
+			<tr> <td><label>Hash Length</label></td> <td><input id="l" type="number" min="1" max="64" placeholder="l"></td> <td></td> </tr>
+			<tr> <td colspan="3"><button id="start">Generate</button></td></tr>
+			<tr> <td colspan="3"><h3>Entropy generated</h3></td></tr>
+			<tr> <td colspan="3"><input id="entropy" readonly="true"></td></tr>
+			<tr> <td colspan="3"><p id="perf">Performance</p></td></tr>
+			<tr> <td colspan="3"><h3>12/24 word Mnemonic Wallet</h3></td></tr>
+			<tr> <td><label>Mnemonic size</label></td> <td><select id="size"><option value="32">12 words</option><option value="64">24 words</option></select></td> <td></td> </tr>
+			<tr> <td colspan="3"><textarea id="mnemonic" rows="4" cols="40"></textarea></td> </tr>
+		</table>
 		<script src="index.js"></script>
 	</body>
 </html>
