@@ -11,6 +11,7 @@
 	</head>
 	<body>
 		<h1>Argon BWG</h1>
+		<div class="round" style="width: 1030px">
 		<table>
 			<tr> <td colspan="3"><h3>Border Wallet Generator</h3></td></tr>
 			<tr> <td><label>File SHA256</label></td> <td><input id="message" type="text"></td> <td><input id="file" type="file"></td> </tr>
@@ -25,8 +26,9 @@
 			<tr> <td colspan="3"><p id="perf">Performance</p></td></tr>
 			<tr> <td colspan="3"><h3>12/24 word Mnemonic Wallet</h3></td></tr>
 			<tr> <td><label>Mnemonic size</label></td> <td><select id="size"><option value="32">12 words</option><option value="64">24 words</option></select></td> <td></td> </tr>
-			<tr> <td colspan="3"><textarea id="mnemonic" rows="4" cols="40"></textarea></td> </tr>
+			<tr> <td colspan="3"><textarea id="mnemonic" rows="3" cols="40"></textarea></td> </tr>
 		</table>
+		</div>
 		<script src="index.js"></script>
 	</body>
 </html>
