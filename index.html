@@ -2,8 +2,6 @@
 <html>
 	<head>
 		<title>Argon2id-JS</title>
-		<script type="module" src="lib/argon2id_worker.js"></script>
-		<script src="lib/Argon2id.min.js"></script>
 		<script src="lib/sjcl-bip39.js"></script>
 		<script src="lib/jsbip39.js"></script>
 		<script src="lib/wordlist_english.js"></script>
@@ -27,6 +25,6 @@
 			<tr> <td><label>Mnemonic size</label></td> <td><select id="size"><option value="32">12 words</option><option value="64">24 words</option></select></td> <td></td> </tr>
 			<tr> <td colspan="3"><textarea id="mnemonic" rows="4" cols="40"></textarea></td> </tr>
 		</table>
-		<script src="index.js"></script>
+		<script type="module" src="index.js"></script>
 	</body>
 </html>

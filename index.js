@@ -1,3 +1,5 @@
+import Argon2id from './lib/argon2id.js'
+
 document.getElementById('entropy').value = '';
 document.getElementById('p').value = '2';		// Threads
 document.getElementById('m').value = '1024';	// Memory KiB
