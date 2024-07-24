@@ -12,10 +12,10 @@ document.getElementById('size').addEventListener('change', updateMnemonic);
 document.getElementById('start').addEventListener('click', () => {
 	let message = document.getElementById('message').value;
 	let salt = document.getElementById('salt').value;
-	let p = document.getElementById('p').value;
-	let m = document.getElementById('m').value;
-	let i = document.getElementById('i').value;
-	let l = document.getElementById('l').value;
+	let p = parseInt(document.getElementById('p').value);
+	let m = parseInt(document.getElementById('m').value);
+	let i = parseInt(document.getElementById('i').value);
+	let l = parseInt(document.getElementById('l').value);
 	let secret = '';
 	let associatedData = '';
 
@@ -26,34 +26,16 @@ document.getElementById('start').addEventListener('click', () => {
 	document.getElementById('perf').innerHTML = "Generating...";
 
 	let timerStart = Date.now();
-	argon2.hash({
-        pass: message,
-        salt,
-				time: i, // the number of iterations
-				mem: m, // used memory, in KiB
-				hashLen: l, // desired hash length
-				parallelism: p, // desired parallelism (it won't be computed in parallel, however)
-				type: argon2.ArgonType.Argon2id, // Argon2d, Argon2i, Argon2id
-    }).then(hash => {
-			let hashHex = hash.hashHex;
-			let timerEnd = calcT(timerStart);
+	Argon2id.hash(message, salt, p, m, i, l, secret, associatedData).then(hash => {
+		let hashHex = hash.hashHex;
+		let timerEnd = calcT(timerStart);
 		
-			let entropy = document.getElementById('entropy');
-				entropy.value = hashHex;
-				entropy.dispatchEvent(new Event('change'));
-
-				document.getElementById('perf').innerHTML = "Generating the mnemonic took <b>" + timerEnd + "ms</b>.";
-    }).catch(e => console.error('Error: ', e));
-	// Argon2id.hashEncoded(message, salt, i, m, p, l, secret, associatedData).then(hashEncoded => {
-	// 	let hashHex = Argon2id.hashDecode(hashEncoded);
-	// 	let timerEnd = calcT(timerStart);
-		
-	// 	let entropy = document.getElementById('entropy');
-	// 		entropy.value = hashHex;
-	// 		entropy.dispatchEvent(new Event('change'));
+		let entropy = document.getElementById('entropy');
+			entropy.value = hashHex;
+			entropy.dispatchEvent(new Event('change'));
 			
-	// 	document.getElementById('perf').innerHTML = "Generating the mnemonic took <b>" + timerEnd + "ms</b>.";
-	// });
+		document.getElementById('perf').innerHTML = "Generating the mnemonic took <b>" + timerEnd + "ms</b>.";
+	});
 });
 
 function updateMnemonic() {
