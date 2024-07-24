@@ -1,6 +1,8 @@
 body {
     background-color: #000;
     color: #a1a1a1;
+    color: #fedfff;
+    text-shadow: 0 0 1px #f94dff, 0 0 2px #f94dff, 0 0 3px #d040ec, 0 0 4px #d040ec, 0 0 5px #d040ec;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
 }
@@ -8,6 +10,10 @@ body {
 input, textarea, select {
     background-color: #313131;
     color: #d1d1d1;
+    color: #fff;
+    text-shadow: 0 0 1px #fedfff, 0 0 2px #f94dff, 0 0 3px #d040ec;
+    border: 2px solid #f94dff;
+    border-radius: 5px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
 }
@@ -15,8 +21,14 @@ input, textarea, select {
 button {
     background-color: #d1d1d1;
     color: #313131;
+    background-color: #000;
+    color: #fff;
+    text-shadow: 0 0 1px #f94dff, 0 0 2px #f94dff, 0 0 3px #d040ec, 0 0 4px #d040ec, 0 0 5px #d040ec;
+    border: 2px solid #f94dff;
+    border-radius: 15px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 26px;
+    font-weight: bolder;
 }
 
 #file {
@@ -48,13 +60,18 @@ button {
     white-space: pre-wrap;
 }
 
-table {
+div.round {
+    border: 2px solid #f94dff;
+    border-radius: 15px;
+    padding: 5px;
     margin-left: auto;
     margin-right: auto;
 }
 
 h3 {
-    color: #d1d1d1; 
+    /*color: #d1d1d1;*/
+    color: #fff;
+    text-shadow: 0 0 2px #f94dff, 0 0 3px #f94dff, 0 0 4px #d040ec, 0 0 5px #d040ec, 0 0 6px #d040ec;
 }
 
 h1 {
@@ -75,6 +92,6 @@ h1 {
         text-shadow: 0 0 10px #fff, 0 0 20px #f94dff, 0 0 30px #d040ec, 0 0 40px #d040ec, 0 0 50px #d040ec, 0 0 60px #d040ec, 0 0 70px #d040ec;
     }
     to {
-        text-shadow: 0 0 20px #fff, 0 0 30px #f94dff, 0 0 40px #f94dff, 0 0 50px #f94dff, 0 0 60px #f94dff, 0 0 70px #f94dff, 0 0 80px #f94dff;
+        text-shadow: 0 0 20px #fff, 0 0 30px #f94dff, 0 0 40px #f94dff, 0 0 50px #ff4db5, 0 0 60px #f94dff, 0 0 70px #d040ec, 0 0 80px #d040ec;
     }
 }
