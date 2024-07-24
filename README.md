@@ -37,7 +37,7 @@ The goal was, that generating the mnemonic wallet from entropy source and passph
 ## How to verify the dependencies used?
 ### **[argon2-browser](https://github.com/antelle/argon2-browser) by [antelle](https://github.com/antelle)**
 
-Repository: ???
+Repository: https://github.com/moonsettler/argon2-browser-antelle/commit/d73916b8efad2ef47140a52acd48b166a4ba97bf
 
 Origin: https://github.com/antelle/argon2-browser/tree/d73916b8efad2ef47140a52acd48b166a4ba97bf
 
