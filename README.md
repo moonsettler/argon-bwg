@@ -35,16 +35,32 @@ The goal was, that generating the mnemonic wallet from entropy source and passph
 10. Enter your 12/24 words into a hardware or software wallet of your choosing, to receive and spend!
 
 ## How to verify the dependencies used?
-### **Argon2id-JS by Rabbit-Company**
+### **[argon2-browser](https://github.com/antelle/argon2-browser) by [antelle](https://github.com/antelle)**
 
-Repository: https://github.com/moonsettler/Argon2id-JS/tree/e3f0679f8db6052767f1c2c704a1739e535be26b
+Repository: ???
 
-Origin: https://github.com/Rabbit-Company/Argon2id-JS/tree/e3f0679f8db6052767f1c2c704a1739e535be26b
+Origin: https://github.com/antelle/argon2-browser/tree/d73916b8efad2ef47140a52acd48b166a4ba97bf
 
 File | SHA256 | State
 ---|---|---
-/Argon2id.min.js | f06dd275837c432bc5013a4398f3d4af4378591ab1283ef513e8f3a9c2ed0a84 | Unchanged
-/Argon2idWorker.min.js | 01fdb3514132314a798910c70245d55896546ab57c32dd35f616c4faedaf50ae | Unchanged
+/docs/dist/Argon2.js | 44b9570a777e12be6266e8705a927d5c67b6e6d333e4a9f10d4350024173338e | Unchanged
+/docs/dist/Argon2.wasm | 71c9ffc4214ba0e210ce8bc385ce35d465d89d3b24b777338226d001e508929f | Unchanged
+/lib/Argon2.js | 48dac9d7942e9c284cc4f76e32a8e653602304dfe6cf5c2189adb187a8f6d77f | Changed
+
+*Since node is not used, the wasm file location needed to be updated:*
+
+**Unchanged /lib/Argon2.js**
+```javascript
+        const wasmPath =
+            global.argon2WasmPath ||
+            'node_modules/argon2-browser/dist/argon2.wasm';
+```
+**Changed /lib/Argon2.js**
+```javascript
+        const wasmPath =
+            global.argon2WasmPath ||
+            '../dist/argon2.wasm';
+```
 
 ### **bip39 by iancoleman**
 
