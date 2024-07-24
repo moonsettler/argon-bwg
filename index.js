@@ -12,10 +12,10 @@ document.getElementById('size').addEventListener('change', updateMnemonic);
 document.getElementById('start').addEventListener('click', () => {
 	let message = document.getElementById('message').value;
 	let salt = document.getElementById('salt').value;
-	let p = document.getElementById('p').value;
-	let m = document.getElementById('m').value;
-	let i = document.getElementById('i').value;
-	let l = document.getElementById('l').value;
+	let p = parseInt(document.getElementById('p').value);
+	let m = parseInt(document.getElementById('m').value);
+	let i = parseInt(document.getElementById('i').value);
+	let l = parseInt(document.getElementById('l').value);
 	let secret = '';
 	let associatedData = '';
 
@@ -26,8 +26,8 @@ document.getElementById('start').addEventListener('click', () => {
 	document.getElementById('perf').innerHTML = "Generating...";
 
 	let timerStart = Date.now();
-	Argon2id.hashEncoded(message, salt, i, m, p, l, secret, associatedData).then(hashEncoded => {
-		let hashHex = Argon2id.hashDecode(hashEncoded);
+	Argon2id.hash(message, salt, p, m, i, l, secret, associatedData).then(hash => {
+		let hashHex = hash.hashHex;
 		let timerEnd = calcT(timerStart);
 		
 		let entropy = document.getElementById('entropy');
