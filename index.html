@@ -2,8 +2,8 @@
 <html>
 	<head>
 		<title>Argon2id-JS</title>
-    <script src="lib/argon2.js"></script>
-    <script src="lib/argon2id.js"></script>
+		<script src="lib/argon2.js"></script>
+		<script src="lib/argon2id.js"></script>
 		<script src="lib/sjcl-bip39.js"></script>
 		<script src="lib/jsbip39.js"></script>
 		<script src="lib/wordlist_english.js"></script>
@@ -17,7 +17,7 @@
 			<tr> <td><label>File SHA256</label></td> <td><input id="message" type="text"></td> <td><input id="file" type="file"></td> </tr>
 			<tr> <td><label>Passphrase</label></td> <td><input id="salt" type="text" placeholder="Salt"></td> <td><input id="saltWords" type="checkbox"><label for="saltWords">Bip-39 words only</label></td> </tr>
 			<tr> <td><label>Parallelism Factor</label></td> <td><input id="p" type="number" min="1" max="16" placeholder="p"></td> <td></td> </tr>
-			<tr> <td><label>Memory Cost</label></td> <td><input id="m" type="number" min="32" max="1024" placeholder="m"></td> <td></td> </tr>
+			<tr> <td><label>Memory Cost (MB)</label></td> <td><input id="m" type="number" min="32" max="1024" placeholder="m"></td> <td></td> </tr>
 			<tr> <td><label>Iterations</label></td> <td><input id="i" type="number" min="1" max="3600" placeholder="t"></td> <td></td> </tr>
 			<tr> <td><label>Hash Length</label></td> <td><input id="l" type="number" min="1" max="64" placeholder="l"></td> <td></td> </tr>
 			<tr> <td colspan="3"><button id="start">Generate</button></td></tr>

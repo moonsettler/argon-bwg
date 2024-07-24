@@ -18,6 +18,10 @@ input, textarea, select {
     font-size: 16px;
 }
 
+label {
+    white-space: nowrap;
+}
+
 button {
     background-color: #d1d1d1;
     color: #313131;
@@ -40,7 +44,7 @@ button {
 }
 
 #entropy {
-    width: 100%;
+    width: 99%;
 }
 
 #salt {
@@ -53,7 +57,7 @@ button {
 }
 
 #mnemonic {
-    width: 100%;
+    width: 99%;
     font-size: 20px;
     font-weight: bold;
     font-family: Courier;

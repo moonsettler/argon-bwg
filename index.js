@@ -1,7 +1,7 @@
 document.getElementById('entropy').value = '';
-document.getElementById('p').value = '2';		// Threads
+document.getElementById('p').value = '1';		// Threads
 document.getElementById('m').value = '1024';	// Memory KiB
-document.getElementById('i').value = '3600';	// Iterations
+document.getElementById('i').value = '360';		// Iterations
 document.getElementById('l').value = '32';		// Hash length
 document.getElementById('size').value = '64';	// Hexadecimal digits
 
@@ -13,7 +13,7 @@ document.getElementById('start').addEventListener('click', () => {
 	let message = document.getElementById('message').value;
 	let salt = document.getElementById('salt').value;
 	let p = parseInt(document.getElementById('p').value);
-	let m = parseInt(document.getElementById('m').value);
+	let m = parseInt(document.getElementById('m').value) * 1024;
 	let i = parseInt(document.getElementById('i').value);
 	let l = parseInt(document.getElementById('l').value);
 	let secret = '';
