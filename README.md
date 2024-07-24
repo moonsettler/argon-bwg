@@ -16,9 +16,9 @@ The **24 word mnemonic seed backup** is the only feasible way to **restore the w
 The goal was, that generating the mnemonic wallet from entropy source and passphrase should take in the ballpark of 1 hour. For this purpose the following Argon2id parameters were choosen:
 - Message: File hash (lowercase)
 - Salt: Passphrase (lowercase)
-- Parallelism Factor: 2
-- Memory Cost: 1024
-- Iterations: 3600
+- Parallelism Factor: 1
+- Memory Cost (MB): 1024
+- Iterations: 360
 - Output Length: 32 bytes (256 bits)
 
 ## How to use?
