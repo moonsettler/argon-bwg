@@ -1,32 +1,57 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Argon2id-JS</title>
-		<script src="lib/Argon2idWorker.min.js"></script>
-		<script src="lib/Argon2id.min.js"></script>
-		<script src="lib/sjcl-bip39.js"></script>
-		<script src="lib/jsbip39.js"></script>
-		<script src="lib/wordlist_english.js"></script>
-		<link rel="stylesheet" href="index.css">
-	</head>
-	<body>
-		<h1>Argon BWG</h1>
-		<table>
-			<tr> <td colspan="3"><h3>Border Wallet Generator</h3></td></tr>
-			<tr> <td><label>File SHA256</label></td> <td><input id="message" type="text"></td> <td><input id="file" type="file"></td> </tr>
-			<tr> <td><label>Passphrase</label></td> <td><input id="salt" type="text" placeholder="Salt"></td> <td><input id="saltWords" type="checkbox"><label for="saltWords">Bip-39 words only</label></td> </tr>
-			<tr> <td><label>Parallelism Factor</label></td> <td><input id="p" type="number" min="1" max="16" placeholder="p"></td> <td></td> </tr>
-			<tr> <td><label>Memory Cost</label></td> <td><input id="m" type="number" min="32" max="1024" placeholder="m"></td> <td></td> </tr>
-			<tr> <td><label>Iterations</label></td> <td><input id="i" type="number" min="1" max="3600" placeholder="t"></td> <td></td> </tr>
-			<tr> <td><label>Hash Length</label></td> <td><input id="l" type="number" min="1" max="64" placeholder="l"></td> <td></td> </tr>
-			<tr> <td colspan="3"><button id="start">Generate</button></td></tr>
-			<tr> <td colspan="3"><h3>Entropy generated</h3></td></tr>
-			<tr> <td colspan="3"><input id="entropy" readonly="true"></td></tr>
-			<tr> <td colspan="3"><p id="perf">Performance</p></td></tr>
-			<tr> <td colspan="3"><h3>12/24 word Mnemonic Wallet</h3></td></tr>
-			<tr> <td><label>Mnemonic size</label></td> <td><select id="size"><option value="32">12 words</option><option value="64">24 words</option></select></td> <td></td> </tr>
-			<tr> <td colspan="3"><textarea id="mnemonic" rows="4" cols="40"></textarea></td> </tr>
-		</table>
-		<script src="index.js"></script>
-	</body>
+<head>
+    <title>Argon2id-JS</title>
+    <script>
+        window.Module = {
+            onRuntimeInitialized: function() {
+                console.log('Module.onRuntimeInitialized called');
+                window.argon2 = Module;
+                window.argon2Ready = true;
+                console.log('Argon2 is now ready');
+            }
+        };
+        window.initArgon2 = function() {
+            console.log('Initializing Argon2');
+            return fetch('argon2.wasm')
+                .then(response => {
+                    console.log('WASM fetch response received');
+                    return response.arrayBuffer();
+                })
+                .then(binary => {
+                    console.log('WASM binary loaded');
+                    Module.wasmBinary = binary;
+                    console.log('WASM binary set to Module');
+                })
+                .catch(error => {
+                    console.error('Error during Argon2 initialization:', error);
+                });
+        };
+    </script>
+    <script src="argon2.js"></script>
+    <script src="lib/sjcl-bip39.js"></script>
+    <script src="lib/jsbip39.js"></script>
+    <script src="lib/wordlist_english.js"></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <h1>Argon BWG</h1>
+    <table>
+        <tr> <td colspan="3"><h3>Border Wallet Generator</h3></td></tr>
+        <tr> <td><label>File SHA256</label></td> <td><input id="message" type="text"></td> <td><input id="file" type="file"></td> </tr>
+        <tr> <td><label>Passphrase</label></td> <td><input id="salt" type="text" placeholder="Salt"></td> <td><input id="saltWords" type="checkbox"><label for="saltWords">Bip-39 words only</label></td> </tr>
+        <tr> <td><label>Parallelism Factor</label></td> <td><input id="p" type="number" min="1" max="16" placeholder="p"></td> <td></td> </tr>
+        <tr> <td><label>Memory Cost (MB)</label></td> <td><input id="m" type="number" min="8" max="1024" value="32" placeholder="m"></td> <td></td> </tr>
+        <tr> <td><label>Iterations</label></td> <td><input id="i" type="number" min="1" max="100" value="2" placeholder="t"></td> <td></td> </tr>
+        <tr> <td><label>Hash Length</label></td> <td><input id="l" type="number" min="16" max="32" value="32" placeholder="l"></td> <td></td> </tr>
+        <tr> <td colspan="3"><button id="start">Generate</button></td></tr>
+        <tr> <td colspan="3"><h3>Entropy generated</h3></td></tr>
+        <tr> <td colspan="3"><input id="entropy" readonly="true"></td></tr>
+        <tr> <td colspan="3"><p id="perf">Performance</p></td></tr>
+        <tr> <td colspan="3"><h3>12/24 word Mnemonic Wallet</h3></td></tr>
+        <tr> <td><label>Mnemonic size</label></td> <td><select id="size"><option value="32">12 words</option><option value="64">24 words</option></select></td> <td></td> </tr>
+        <tr> <td colspan="3"><textarea id="mnemonic" rows="4" cols="40"></textarea></td> </tr>
+    </table>
+    <script src="index.js"></script>
+</body>
 </html>
